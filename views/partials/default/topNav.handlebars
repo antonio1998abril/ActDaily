@@ -1,0 +1,35 @@
+    <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/user" class="brand-logo">AcDaily</a>
+      
+     
+      <ul class="right hide-on-med-and-down">
+            {{#if user}}
+         <!-- Modal Trigger -->
+        
+         <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Sign Out</a></li>
+         <li><a class="waves-effect waves-light btn modal-trigger" href="/perfil/{{user.id}}" >Perfil</a></li>
+          <li><a class="waves-effect waves-light btn modal-trigger" href="/">Begin</a></li>
+        {{else}}
+        <li><a class="waves-effect waves-light btn modal-trigger" href="/login">Login</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="/register">Register</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="/">Begin</a></li>
+         {{/if}}
+      </ul>  
+      
+      <ul id="nav-mobile" class="sidenav">
+        {{#if user }}
+         <!-- Modal Trigger -->
+  
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Sign Out</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="/perfil/{{user.id}}">Perfil</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="/">Begin</a></li>
+        {{else}}
+        <li><a class="waves-effect waves-light btn modal-trigger"  href="/login">Login</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="/register">Register</a></li>
+        <li><a class="waves-effect waves-light btn modal-trigger" href="/">Begin</a></li>
+         {{/if}}
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>

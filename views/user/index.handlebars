@@ -1,0 +1,82 @@
+<div >
+
+    <h3 class="header col s12 light center">Bienvenido {{user.name}}</h3>
+</div>
+
+  <br><br>
+
+<div  class="list row create_product" >
+  {{#each getall}} 
+  
+  <div class="AcDaily-show">
+      <div class="row" >
+  {{#compare checked "==" "1"}}
+      <div data-iddaly="{{id}}" class="card colordone">
+  {{else}}
+      <div data-iddaly="{{id}}" class="card " >
+  {{/compare}}
+            <a 
+              class="btn-floating modal-trigger info"
+              data-name="{{name}}"
+              data-phone="{{phone}}"
+              data-daily="{{activity}}"
+              data-email="{{email}}"
+              data-date="{{dateact}}"
+              data-user="{{user}}"
+              data-checked="{{checked}}"
+              {{!-- set color to card --}}
+              data-iddaly="{{id}}"
+              {{!-- end --}}
+              data-newphone="{{phone}}"
+              data-newname="{{name}}"
+              data-newdaily="{{activity}}"
+              data-newemail="{{email}}"
+              data-newdate="{{dateact}}" 
+              data-idact="{{id}}" 
+              href="#modaledit" 
+              style="margin-left: 220px; margin-top:20px">
+              <i class="material-icons">mode_edit</i>
+            </a>
+            <a 
+              class="btn-floating modal-trigger red " 
+              href="#modaldelete" 
+              data-idact="{{id}}"
+              data-name="{{name}}"
+              data-newname="{{name}}"
+              data-done="{{checked}}"
+              style="margin-top:20px;">
+              <i class="material-icons">delete</i>
+            </a>    
+          <span class="card-title" style="margin-left: 20px;">{{name}}</span>
+          <div class="card-content">
+            <p>{{activity}} </p>
+            <small>{{dateact}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ {{/each}}    
+</div>
+
+
+<a class="modal-trigger" 
+    href="#modaladd" 
+    data-addemail="{{user.email}}"  
+    data-addphone="{{user.phone}}"
+>
+  <div  class="upload"></div>
+</a>
+
+
+ 
+
+
+
+
+
+
+
+
+
+

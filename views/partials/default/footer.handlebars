@@ -1,0 +1,595 @@
+<footer class="page-footer teal">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-5" href="https://github.com/antonio1998abril">Antonio Rodriguez Barrientos</a>
+      </div>
+    </div>
+</footer>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Log out</h4>
+      <p>Are you agree?</p>
+    </div>
+    <div class="modal-footer">
+      <a id="logout" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  <div id="modaledit" class="modal">
+    <div class="modal-content">
+    <h4>Edit</h4>
+      <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="tiny material-icons">mail_outline</i>
+            <input  class="validate" emailuser="email" type="email" id="update-email" >
+            <input   newemail="newemail" id="before-email" type="hidden" class="validate" >
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="tiny material-icons">phone_outline</i>
+            <input  class="validate" phoneuser="phone" id="update-phone" type="number" >
+            <input  type="hidden" class="validate" newphone="newphone" id="before-phone"  >
+            <label for="phone" data-error="wrong" data-success="right">Phone</label>
+          </div>
+        </div>  
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="tiny material-icons">drag_handle</i>
+                <input   nameuser="name" id="update-title" type="text" class="validate" >
+                <input  type="hidden" newname="newname" id="before-title" class="validate">
+              <label for="title">Title</label> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12"> 
+              <i class="tiny material-icons"> assignment</i>
+              <input   dailyuser="daily" id="update-daily" type="text" class="validate" >
+              <input  newdaily="newdaily" id="before-daily" type="hidden" class="validate" >
+              <label for="name">Activity To Do</label>
+            </div>
+          </div>
+           <div class="row">
+            <div class="input-field col s12"> 
+              <i class="tiny material-icons"> add_alarm</i>
+               <input dateuser="date" type="text" class="datepicker" id="update-remind">
+                <input newdate="newdate"  class="datepicker" type="hidden" id="update-newremind">
+                 <label for="name">Set time to remind </label>
+            </div>
+          </div> 
+              {{!-- ADD elements  to add --}}
+      </form>
+      <label style="margin-top: 10px; margin-left:20px " >
+          <input id="done" type="checkbox" checked="checked" />           
+          <span>Task Done</span>
+      </label>
+    </div>
+        <input  type="hidden" id="update-act" idact="idact"  >
+        <input  type="hidden" id="useract" user="user"  >
+        {{!-- i used the id of card twice to set color green css in the card  --}}
+         <input  type="hidden" twiceid="iddaly"  >
+    </div>
+    <div class="modal-footer">
+      <a id="updateDaily" class="modal-close waves-effect waves-green btn-flat">Accept</a>
+    </div>
+  </div> 
+
+  <div id="modaldelete" class="modal">
+    <div class="modal-content">
+      <h4 class="data"></h4>  
+          <input type="hidden" idact="idact" id="act" value="">
+      </div>
+
+     <div class="modal-footer">
+      <a id="deletemodal" class="modal-close waves-effect waves-green btn-flat">Accept</a>
+     
+    </div>
+  </div>
+
+<div id="modaladd" class="modal">
+  <div class="modal-content">
+    <h4>New</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="tiny material-icons">mail_outline</i>
+            <input class="validate" id="addemail" type="email" addemail="addemail">
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="tiny material-icons">phone_outline</i>
+            <input class="validate" id="addphone" type="number" addphone="addphone" type="number">
+            <label for="phone" data-error="wrong" data-success="right">Phone</label>
+          </div>
+        </div>  
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="tiny material-icons">drag_handle</i>
+              <input id="addtitle" type="text" class="validate">
+              <label for="title">Title</label> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12"> 
+              <i class="tiny material-icons"> assignment</i>
+              <input placeholder="I have to do" id="daily" type="text" class="validate">
+              <label for="name">Activity To Do</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12"> 
+              <i class="tiny material-icons"> add_alarm</i>
+               <input type="text" class="datepicker" id="toremind">
+                 <label for="name">Set time to remind </label>
+            </div>
+          </div>
+          <input  type="hidden" id="user"  value={{user.id}}>
+       
+      </form>
+    </div>
+  </div>
+
+      <div class="modal-footer">
+        <a id="createDaily" class="modal-close waves-effect waves-green btn-flat" style="margin-top: -60px;">Accept</a>
+      </div>
+</div>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!--JavaScript at end of body for optimized loading-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+       <script type="text/javascript" src="/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.2/sweetalert2.all.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+{{!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> --}}
+    <script type="text/javascript" src="/js/parallax.js"></script>
+    <script type="text/javascript" src="/js/parallax.min.js"></script>
+    </body>
+    <script>
+
+  // Or with jQuery
+      $(document).ready(function(){
+
+    $('.sidenav').sidenav();
+    $('.parallax-window').parallax({imageSrc: '/image/notes.jpg'});
+    $('.parallax-window').parallax({imageSrc: '/image/programmer.jpeg'});
+
+        var count = 0;
+
+        let errors=[];
+        setTimeout(function(){
+        $('.auto-hide').slideUp(300);
+        },2000);
+        /////////////////Set date///////////////////////////////////
+        $('.datepicker').datepicker();
+        //////////////Option modal//////////////////////////////////
+        $('.modal').modal({
+        ready: function(modal, trigger) {
+        //get todo and done
+        modal.find(`input[twiceid=iddaly]`).val(trigger.removeData('iddaly'))
+         modal.find('input[twiceid="iddaly"]').val(trigger.data('iddaly'))
+          //UPDATE
+          modal.find(`input[nameuser=name]`).val(trigger.removeData('name'))
+          modal.find('input[newname="newname"]').val(trigger.removeData('newname'))
+          modal.find('input[dailyuser="daily"]').val(trigger.removeData('daily'))
+          modal.find('input[newdaily="newdaily"]').val(trigger.removeData('newdaily'))
+          modal.find(`input[dateuser=date]`).val(trigger.removeData('date'))
+          modal.find('input[newdate="newdate"]').val(trigger.removeData('newdate'))
+
+          modal.find(`input[dateuser=date]`).val(trigger.data('date'))
+          modal.find('input[newdate="newdate"]').val(trigger.data('newdate'))
+          //get user
+          modal.find('input[user="user"]').val(trigger.removeData('user'))
+          modal.find('input[user="user"]').val(trigger.data('user'))
+          ///////////revisar si esta hecho
+          modal.find('input[checked="checked"]').val(trigger.removeData('checked'))
+          modal.find('input[checked="checked"]').val(trigger.data('checked'))
+          const get=trigger.data('checked')
+          if(get){
+            $("#done").prop('checked',true)
+          }else{
+            $("#done").prop('checked',false)
+          }
+          //$("input").removeAttr("name")  
+          modal.find('input[emailuser="email"]').val(trigger.data('email'))
+          modal.find('input[phoneuser="phone"]').val(trigger.data('phone'))
+          modal.find(`input[nameuser=name]`).val(trigger.data('name'))
+          modal.find('input[dailyuser="daily"]').val(trigger.data('daily'))
+          modal.find('input[idact="idact"]').val(trigger.data('idact'))
+          //UPDATE AFTER RESPONSE JSON
+          modal.find('input[newdaily="newdaily"]').val(trigger.data('newdaily'))
+          modal.find('input[newemail="newemail"]').val(trigger.data('newemail'))
+          modal.find('input[newphone="newphone"]').val(trigger.data('newphone'))
+          modal.find('input[newname="newname"]').val(trigger.data('newname'))
+        //ADD
+          modal.find('input[addemail="addemail"]').val(trigger.data('addemail'))
+          modal.find('input[addphone="addphone"]').val(trigger.data('addphone'))
+        //DELETE
+        var name= trigger.data('name')
+        var tocadena= JSON.stringify(name)
+        tocadena= "Delete "+tocadena+" ?"
+        var newcadena=tocadena.replace(/['"]+/g, '')
+
+        $(`.data`).html(newcadena); 
+        
+    }
+});   
+        /////////////////////LOG-OUT/////////////////////////////////
+        $("#logout").on('click',function(e){
+            $.ajax({
+          url:'/logout',
+          type:'GET',
+          success:function(response){
+              swal({title:'Done',type:'success'})
+              setTimeout(function(){
+              window.location.href = "/";
+              },1000);
+          },
+            })
+        }) 
+        /////////////////////End login Ajax///////////////////////////7
+        $("#register").on('click',function(e){ 
+        let errors=[];
+        e.preventDefault();
+        
+            var name=$("#name").val();
+            var phone=$("#phone").val();
+            var email=$("#email").val();
+            var password=$("#password").val();
+            var repeat=$("#repeat").val();
+
+            if(!name){
+                errors.push({message:'Name empty '})
+            }
+            if(!email){
+                errors.push({message:'Email empty '})
+            }
+            if(!phone){
+                errors.push({message:'Phone empty '})
+            }
+            if(!password){
+                errors.push({message:'Password empty '})
+            }
+            if(repeat !== password){
+                errors.push({message:'Password does not match '})
+            }
+            if(errors.length>0){
+              var objetos=errors.map(a=>a.message)
+              var html=`<div class="material-icons">error_outline</div>
+		          <strong>${objetos}</strong>`;
+              
+              $("#message-error").html(html).addClass("materialert error ")
+              
+            }else{
+          $.ajax({
+          url:'/register',
+          type:'POST',
+          data:{name:name,phone:phone,email:email,password:password,repeat:repeat},
+          success:function(response){
+              swal({title:'Done',type:'success'})
+              setTimeout(function(){
+              window.location.href = "/login";
+              },1000);
+          },
+           error: function(status){
+              swal({title:'Email or Phone have been taken',type:'error'});
+              setTimeout(function(){
+              window.location.href = "/register";
+              },2000);
+                
+              
+              }
+            });
+          }
+        });
+        ///////////////////////////////////////////////////////////////
+        $("#login").on('click',function(e){ 
+        let errors=[];
+        e.preventDefault();
+    
+        var email=$("#email").val();
+        var password=$("#password").val();
+     
+            if(!email){
+                errors.push({message:'Email empty '})
+            }
+          
+            if(!password){
+                errors.push({message:'Password empty '})
+            }
+            if(errors.length>0){
+              var objetos=errors.map(a=>a.message)
+              var html=`<div class="material-icons">error_outline</div>
+		          <strong>${objetos}</strong>`;
+              
+              $("#message-error").html(html).addClass("materialert error ")
+
+            }else{
+          $.ajax({
+          url:'/login',
+          type:'POST',
+          data:{email:email,userpassword:password},
+          //headers: {"token": localStorage.getItem('token')},
+          success:function(response){
+              swal({title:'Done',type:'success'}) 
+              setTimeout(function(){
+              window.location.href = "/user";
+              },2000);
+
+          },
+           error: function(status){
+              swal({title:'Email or password Incorrect',type:'error'});
+              setTimeout(function(){
+              window.location.href = "/login";
+              },2000);
+              }
+            });
+          };
+        });
+        ///////////////////CRUD/////////////////////////////////////////
+        ///////////////////ADD new Daily//////////////////////////////
+        $("#createDaily").on('click',function(e){ 
+          let errors=[];
+          e.preventDefault();
+
+          var daily=$("#daily").val(); 
+          var email=$("#addemail").val();
+          var phone=$("#addphone").val();
+          var name=$("#addtitle").val();
+          var user=$("#user").val();
+          var date=$("#toremind").val();
+
+          const originaltoday=new Date(date);
+          originaltoday.setDate(originaltoday.getDate()-1);
+          var formatdate=new Date(originaltoday).toISOString().slice(0,10);
+      
+
+            if(!email){
+                errors.push({message:'Email  '})
+            }
+            if(!phone){
+                errors.push({message:'Phone '})
+            }
+            if(!daily){
+                errors.push({message:'Activity'})
+            }
+             if(!name){
+                errors.push({message:'Title'})
+            }
+            if(!toremind){
+                errors.push({message:'Date'})
+            }
+            if(errors.length>0){
+              var objetos=errors.map(a=>a.message)
+              //var html=`<div class="material-icons">error_outline</div>
+		          //<strong>${objetos}</strong>`;
+              //$(".message-error").html(html).addClass("materialert error")
+              swal({title:` ${objetos}`+" empty",type:'error'});
+
+            }else{
+              
+          $.ajax({
+          url:'/user',
+          type:'POST',
+          data:{email:email,phone:phone,daily:daily,name:name,user:user,formatdate:formatdate,date:date},
+          success:function(response){
+            var checked="0";
+            var html =`
+              <div class="AcDaily-show ">
+                <div class="row">
+                  <div class="card teal lighten-2 ">
+                      <a 
+                        class="btn-floating modal-trigger info" 
+                        href="#modaledit" 
+                        data-name="${name}"
+                        data-phone="${phone}"
+                        data-daily="${daily}"
+                        data-email="${email}"
+                        data-date="${date}"
+                        data-user="${user}"
+
+                       
+
+                        data-newdate="${date}"  
+                        data-newname="${name}"
+                        data-newphone="${phone}"
+                        data-newdaily="${daily}"
+                        data-newemail="${email}"
+                        data-idact="${response.result.insertId}"
+                        style="margin-left: 200px; margin-top:10px">
+                        <i class="material-icons">mode_edit</i>
+                      </a>
+                      <a 
+                        class="btn-floating modal-trigger red " 
+                        href="#modaldelete" 
+                        data-idact="${response.result.insertId}"
+                        data-name="${name}"
+                        data-newname="${name}"
+                      
+                        data-done="${checked}"
+                        style="margin-top:10px;">
+                        <i class="material-icons">delete</i>
+                      </a>
+                    
+                       <span class="card-title white-text" style="margin-left: 20px;">${name}</span>
+                    <div class="card-content">
+                     <p class="white-text">${daily}</p>
+                      <small>${date}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          $('.list').append(html);
+         
+          
+            $(".message-error").remove();
+         swal({title:'New task added',type:'success', timer: 1000});
+           
+          },
+           error: function(status){
+              swal({title:'Oops try again!!',type:'error',timer: 1000});
+              }
+            });
+          };
+        });
+        //////////////////UPDATE Daily////////////////////////////////
+        $("#updateDaily").click('click',function(e){
+        e.preventDefault();
+        
+          /////////////eliminar  los de arriava
+          var email=$("#update-email").val();
+          var phone=$("#update-phone").val();
+          var name=$("#update-title").val();
+          var daily=$("#update-daily").val();
+          var idact=$("#update-act").val();
+          var user=$("#useract").val(); 
+          var done=$("#done").val();
+          if ($('#done').is(":checked")){var checked=true}else{checked=false}
+
+          var date=$("#update-remind").val();
+          var newdate=$("#update-newremind").val();
+          var dailybefore=$("#before-daily").val();
+          var emailbefore=$("#before-email").val();
+          var namebefore=$("#before-title").val();
+          var phonebefore=$("#before-phone").val();
+
+          const originaltoday=new Date(date);
+          originaltoday.setDate(originaltoday.getDate()-1)
+          var formatdate=new Date(originaltoday).toISOString().slice(0,10)
+          ////modal card to see what activity have been done
+          var todo=$("#updatetodo").val();
+          var variable=parseInt(todo)
+
+          var did=$("#updatedid").val();
+          var didvar=parseInt(did)
+    
+          $.ajax({
+            url:'/user',
+            type:'PUT',
+            data:{email:email,phone:phone,name:name,daily:daily,idact:idact,formatdate:formatdate,date:date,checked:checked,user:user},
+            success:function(response){  
+            var data=JSON.stringify(response)
+            var json=JSON.parse(data)
+            //elminar name dado por el modal ya gregar value esto para que se vean los cambios
+            //$("input").removeAttr("name")
+            // $("a").attr('data-name',name)
+            // $("#before-email").val(email);
+            // $("#before-title").val(name);
+            // $("#before-phone").val(phone)
+            // $("#before-daily").val(daily)
+       
+            if(checked){
+              $(`*[data-idact=${idact}]`).attr('data-checked',1); 
+              $(`*[data-idact=${idact}]`).attr('data-done',1);
+
+               $(`*[data-iddaly="${idact}"]`).addClass("colordone")
+            }else{
+              $(`*[data-idact=${idact}]`).attr('data-checked',0);
+              $(`*[data-idact=${idact}]`).attr('data-done',0);
+              $(`*[data-iddaly="${idact}"]`).removeClass("colordone")
+            }
+            $(`*[data-name="${namebefore}"]`).attr("data-name",name)
+            $(`*[data-newname="${namebefore}"]`).attr("data-newname",name)
+            
+            $(`*[data-daily="${dailybefore}"]`).attr("data-daily",daily)
+            $(`*[data-newdaily="${dailybefore}"]`).attr("data-newdaily",daily)
+
+            $(`*[data-date="${newdate}"]`).attr("data-date",date)
+            $(`*[data-newdate="${newdate}"]`).attr("data-newdate",date)
+
+            $(`span:contains(${namebefore})`).html(name);
+            $(`p:contains(${dailybefore})`).html(daily);
+            $(`small:contains(${newdate})`).html(date);            
+            },error:function(error){
+            swal({title:'Error this already exist',type:'error', timer: 1000})
+        
+
+            },complete:function(response){
+              if( phonebefore != phone ||  emailbefore != email ){
+                  location.reload();
+              }
+    
+   
+              }
+            
+            
+          });
+        });
+        ///////////////////////////////CHECKED
+        /////////////////Delete Daily
+        $("#deletemodal").on('click',function(e){ 
+      e.preventDefault();
+        var idact=$("#act").val();
+         $.ajax({
+            url:'/user',
+            type:'DELETE',
+            data:{idact:idact},
+          success:function(response){
+
+            $(`[data-idact= ${idact}]`).parent().remove()
+          }
+         });
+        });
+        ////////////////////UPDATE DATA PERFIL////////////////////////  
+        $("#perfilupdate").on('click',function(e){
+        e.preventDefault();
+         let errors=[];
+
+          var updatename=$("#perfilname").val();
+          var updatephone=$("#perfilphone").val();
+          var updateemail=$("#perfilemail").val();
+          var updatepassword=$("#perfilpassword").val();
+          var updaterepeat=$("#perfilrepeat").val();
+
+          var userid=$("#iduser").val();
+
+            if(!updatename){
+                errors.push({message:'Name empty '})
+            }
+            if(!updateemail){
+                errors.push({message:'Email empty '})
+            }
+            if(!updatephone){
+                errors.push({message:'Phone empty '})
+            }
+            if(updatepassword !==  updaterepeat){
+                errors.push({message:'Password does not match '})
+            } 
+            if(errors.length>0){
+              var objetos=errors.map(a=>a.message)
+              var html=`<div class="material-icons">error_outline</div>
+		          <strong>${objetos}</strong>`;
+
+            
+$("#message-error").html(html).addClass("materialert error ").show().delay(2000).fadeOut();
+              }else{
+                  $.ajax({
+          url:'/perfil/:id',
+          type:'PUT',
+          data:{name:updatename,phone:updatephone,email:updateemail,password:updatepassword,userid:userid},
+          success:function(response){
+              swal({title:'Done',type:'success',timer:1000})
+              $("#perfilname").val(updatename);
+              $("#perfilemail").val(updateemail);
+              $("#perfilphone").val(updatephone);
+              $("#nameuserup").html("Your perfil "+updatename).attr("header col s12 light center")
+             
+          },
+           error: function(status){
+              swal({title:'Email or Phone have been taken',type:'error'});
+            
+                
+              
+              }
+            });
+              }
+        
+        });
+        /////////////////////END DATA PERFIL
+          });
+    </script>
+  </html>
+
